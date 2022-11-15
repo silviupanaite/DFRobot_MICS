@@ -87,7 +87,6 @@ class MyCustomSensor : public PollingComponent, public Sensor {
  public:
   // constructor
   DFRobot_MICS_I2C mics;
-  DFRobot_AirQualitySensor particle;
   
   Sensor *Carbon_Monoxide_sensor = new Sensor(); // CO
   Sensor *Methane_sensor = new Sensor();         // CH4
@@ -108,10 +107,6 @@ class MyCustomSensor : public PollingComponent, public Sensor {
       delay(1000);
     } 
     
-    while(!particle.begin()){
-      ESP_LOGD("custom","NO Deivces !");
-      delay(1000);
-    }
     
     ESP_LOGD("custom","Device connected successfully !");
     
